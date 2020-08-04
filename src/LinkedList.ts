@@ -1,4 +1,5 @@
 import { ListNode } from './ListNode';
+import { indexOf } from 'core-js/fn/array';
 
 export class LinkedList {
 
@@ -12,7 +13,17 @@ export class LinkedList {
     public addToHead(value: string): ListNode {
 
         // TODO
-        return;
+        let ln = new ListNode();
+        ln.value = value;
+        ln.isHead = true;
+        if (this.head == null) {
+            ln.next = null;
+        } else {
+            this.head.isHead = false;
+            ln.next = this.head;  
+        }
+        this.head = ln;
+        return ln;
     }
 
     /**
@@ -21,7 +32,11 @@ export class LinkedList {
     public getHead(): ListNode {
 
         // TODO
-        return;
+        let ln = new ListNode;
+        if(Object.keys(ln).length === 0){
+            return this.head
+        }
+        return ln;
     }
 
     /**
@@ -30,9 +45,19 @@ export class LinkedList {
      * @throws an error if the given index is invalid.
      */
     public get(index: number): ListNode {
-
+        
         // TODO
-        return;
+        let current: ListNode = this.head;
+        let count: number;
+
+        if (current == null || index < 0 || index > Object.keys(current).length) {
+            throw new Error(`Invalid index ${index}`)
+        } else if (count === index) {
+            return current;
+        } else 
+            count++;
+            current = current.next;
+        // return null;
     }
 
     /**
@@ -41,8 +66,13 @@ export class LinkedList {
      * list is returned.
      */
     public values(): Array<string> {
-
         // TODO
-        return;
+        let array = [];
+        let current: ListNode = this.head;
+        while(current) {
+            array.push(current.value);
+            current = current.next;
+        }
+        return array;
     }
 }
