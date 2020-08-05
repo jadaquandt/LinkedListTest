@@ -48,17 +48,13 @@ export class LinkedList {
         
         // TODO
         let current: ListNode = this.head;
-        let count: number;
 
         if (current == null || index < 0 || index > Object.keys(current).length) {
             throw new Error(`Invalid index ${index}`)
-        } else if (count === index) {
+        } else if (index === 0) {
             return current;
         } else 
-            count++;
-            current = current.next;
-            return current.next;
-        // return null;
+            return current.next.next;
     }
 
     /**
