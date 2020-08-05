@@ -109,6 +109,11 @@ describe('Class: LinkedList', () => {
         describe('Given a populated list, when a ListNode at a specific index is requested, then it', () => {
             beforeEach(() => {
                 linkedList = new LinkedList();
+                linkedList.addToHead('eight');
+                linkedList.addToHead('seven');
+                linkedList.addToHead('six');
+                linkedList.addToHead('five');
+                linkedList.addToHead('four');
                 linkedList.addToHead('three');
                 linkedList.addToHead('two');
                 linkedList.addToHead('one');
@@ -123,14 +128,14 @@ describe('Class: LinkedList', () => {
             });
             it('should throw an error indicating the invalid index if it is greater than the length', () => {
                 try {
-                    linkedList.get(7);
+                    linkedList.get(9);
                     fail('An error should have been thrown');
                 } catch (err) {
-                    expect(err.message).toEqual('Invalid index 7');
+                    expect(err.message).toEqual('Invalid index 9');
                 }
             });
             it('should return the ListNode at the given index', () => {
-                expect(linkedList.get(2).value).toEqual('three');
+                expect(linkedList.get(5).value).toEqual('six');
             });
         });
     });
