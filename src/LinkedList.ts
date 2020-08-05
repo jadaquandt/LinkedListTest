@@ -57,6 +57,7 @@ export class LinkedList {
         } else 
             count++;
             current = current.next;
+            return current.next;
         // return null;
     }
 
