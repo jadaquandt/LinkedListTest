@@ -46,15 +46,18 @@ export class LinkedList {
      */
     public get(index: number): ListNode {
         
-        // TODO
         let current: ListNode = this.head;
-
-        if (current == null || index < 0 || index > Object.keys(current).length) {
-            throw new Error(`Invalid index ${index}`)
-        } else if (index === 0) {
-            return current;
-        } else 
-            return current.next.next;
+        let counter: number = 0;
+        
+        while ( current != null ) {
+            if (index === counter) {
+                return current;
+            } else {
+                counter++
+                current = current.next
+            }
+        }
+        throw new Error(`Invalid index ${index}`)
     }
 
     /**
